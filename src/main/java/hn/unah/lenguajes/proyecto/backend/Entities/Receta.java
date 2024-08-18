@@ -16,11 +16,12 @@ import lombok.Data;
 
 public class Receta {
     @Id
+    @Column(name = "idreceta")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idReceta;
 
     @ManyToOne
-    @JoinColumn(name = "idmedicamentos")
+    @JoinColumn(name = "idmedicamento")
     private Medicamento medicamento;
 
     @Column(name = "cantidadmedicamento")
@@ -29,4 +30,6 @@ public class Receta {
     //@ManyToOne
     //@JoinColumn(name = "idCita")
     //private Cita cita;
+
+    private String instrucciones;
 }

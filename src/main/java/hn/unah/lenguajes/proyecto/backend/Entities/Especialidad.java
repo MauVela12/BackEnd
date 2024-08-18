@@ -19,6 +19,4 @@ public class Especialidad {
     private int idEspecialidad;
 
     private String nombre;
-
-    private String descripcion;
 }

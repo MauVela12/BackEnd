@@ -19,6 +19,4 @@ public class Cargo {
     private int idCargo;
 
     private String nombre;
-
-    private String descripcion;
 }
