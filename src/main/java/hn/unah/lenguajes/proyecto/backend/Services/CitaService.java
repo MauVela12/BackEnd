@@ -7,7 +7,6 @@ import hn.unah.lenguajes.proyecto.backend.Entities.Paciente;
 import hn.unah.lenguajes.proyecto.backend.Entities.Personal;
 import hn.unah.lenguajes.proyecto.backend.Entities.Receta;
 import hn.unah.lenguajes.proyecto.backend.Repositories.CitaRepository;
-import hn.unah.lenguajes.proyecto.backend.Repositories.MedicamentoRepository;
 import hn.unah.lenguajes.proyecto.backend.Repositories.PacienteRepository;
 import hn.unah.lenguajes.proyecto.backend.Repositories.PersonalRepository;
 import hn.unah.lenguajes.proyecto.backend.Repositories.RecetaRepository;
