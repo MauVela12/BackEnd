@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import hn.unah.lenguajes.proyecto.backend.Entities.Cita;
 import hn.unah.lenguajes.proyecto.backend.Entities.Paciente;
 import hn.unah.lenguajes.proyecto.backend.Entities.Personal;
+import hn.unah.lenguajes.proyecto.backend.Entities.Receta;
 import hn.unah.lenguajes.proyecto.backend.Repositories.CitaRepository;
 import hn.unah.lenguajes.proyecto.backend.Repositories.MedicamentoRepository;
 import hn.unah.lenguajes.proyecto.backend.Repositories.PacienteRepository;
@@ -20,7 +21,7 @@ import java.util.Optional;
 public class CitaService {
 
     @Autowired
-    private MedicamentoRepository medicamentoRepository;
+    private MedicamentoService medicamentoService;
 
     @Autowired
     private CitaRepository citaRepository;
@@ -116,6 +117,19 @@ public class CitaService {
         }
 
         return citasPendientes;
+    }
+
+    public boolean agregarRecetaCita(int idCita, Receta receta) {
+        if (this.citaRepository.existsById(idCita)) {
+            Cita citaModificar = this.citaRepository.findById(idCita).get();
+            receta.setCita(citaModificar);
+            this.medicamentoService.reducirInventario(idCita, receta.getCantidadMedicamento());
+            this.recetaRepository.save(receta);
+
+            return true;
+        }else {
+            return false;
+        }
     }
 
 }

@@ -27,9 +27,9 @@ public class Receta {
     @Column(name = "cantidadmedicamento")
     private int cantidadMedicamento;
 
-    //@ManyToOne
-    //@JoinColumn(name = "idCita")
-    //private Cita cita;
+    @ManyToOne
+    @JoinColumn(name = "idcita")
+    private Cita cita;
 
     private String instrucciones;
 }

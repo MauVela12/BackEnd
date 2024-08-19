@@ -4,14 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import hn.unah.lenguajes.proyecto.backend.Entities.Cita;
+import hn.unah.lenguajes.proyecto.backend.Entities.Receta;
 import hn.unah.lenguajes.proyecto.backend.Services.CitaService;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 import java.util.Optional;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
 
 
 
@@ -85,5 +83,16 @@ public class CitaController {
     @GetMapping("/paciente/citasPendientes/{idPaciente}")
     public List<Cita> tieneCitaPendiente(@PathVariable Integer idPaciente) {
         return this.citaService.tieneCitaPendiente(idPaciente);
+    }
+
+    @PutMapping("agregarReceteCita/{idCita}")
+    public String agregarReceta(@PathVariable(name = "idCita") int idCita,
+                                @RequestBody Receta receta) {
+        
+        if (this.citaService.agregarRecetaCita(idCita, receta)) {
+            return "Receta añadida correctamente\n";
+        }else {
+            return "Error al ingresar receta\n";
+        }
     }
 }

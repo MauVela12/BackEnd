@@ -3,12 +3,13 @@ package hn.unah.lenguajes.proyecto.backend.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import hn.unah.lenguajes.proyecto.backend.Entities.Cita;
 import hn.unah.lenguajes.proyecto.backend.Entities.Paciente;
 import hn.unah.lenguajes.proyecto.backend.Services.PacienteService;
-
 import java.util.List;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 @RequestMapping("/api/pacientes")
